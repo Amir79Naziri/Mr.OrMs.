@@ -6,6 +6,7 @@ const result_percentage = document.getElementById("result-percentage")
 const saved_gender = document.getElementById("saved-gender")
 const search_text = document.getElementById("search-text")
 const radio_btn = document.getElementsByName("gender-btn")
+const error_message = document.getElementById("error-message")
 
 let last_name_from_storage = null;
 

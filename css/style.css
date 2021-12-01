@@ -163,6 +163,31 @@ body {
 .radio-btn {
     width: 15px;
     height: 15px;
+    cursor: pointer;
+}
+
+
+.error-box {
+    display: block;
+    position: fixed;
+    border-radius: 5px;
+    margin: 10px 10px;
+    min-width: 10%;
+    max-width: 20%;
+
+    font-size: 14px;
+    padding: 15px 5px 15px 5px;
+    background-image: linear-gradient(to right, rgb(255, 63, 63) 0%, #ff0810 75%);
+    color: #ffffff;
+    text-align: left;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+
+.error-box.active {
+    visibility: visible;
 }
 
 
@@ -204,6 +229,15 @@ body {
         padding: 2px 6px 5px;
         font-size: 16px;
         flex-basis: 65%;
+    }
+
+    .error-box {
+        margin: 5px 5px;
+        min-width: 10%;
+        max-width: 17%;
+        max-height: 30%;
+        font-size: 9px;
+        padding: 8px 4px 8px 4px;
     }
 }
 
@@ -260,6 +294,15 @@ body {
         height: 12px;
         font-size: 7px;
     }
+
+    .error-box {
+        margin: 3px 3px;
+        min-width: 10%;
+        max-width: 15%;
+        max-height: 30%;
+        font-size: 5px;
+        padding: 5px 2px 5px 2px;
+    }
 }
 
 
@@ -302,5 +345,14 @@ body {
     .radio-btn {
         width: 6px;
         height: 6px;
+    }
+
+    .error-box {
+        margin: 1px 1px;
+        min-width: 10%;
+        max-width: 15%;
+        max-height: 20%;
+        font-size: 5px;
+        padding: 3px 1px 3px 1px;
     }
 }
