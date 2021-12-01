@@ -4,10 +4,13 @@ const clear_btn = document.getElementById("clear-btn")
 const result_gender = document.getElementById("result-gender")
 const result_percentage = document.getElementById("result-percentage")
 const saved_gender = document.getElementById("saved-gender")
+const search_text = document.getElementById("search-text")
+const radio_btn = document.getElementsByName("gender-btn")
 
+let last_name_from_storage = null;
 
 function validate_search_name() {
-    let name = document.getElementById("search-text").value
+    let name = search_text.value
 
     if (name.length === 0) {
         throw new Error("please enter your name")
@@ -18,41 +21,70 @@ function validate_search_name() {
 }
 
 
-function which_chosen() {
+function which_gender_chosen() {
     let radio_btn = document.getElementsByName("gender-btn")
     for (let i = 0; i < radio_btn.length; i++) {
         if (radio_btn[i].checked) return radio_btn[i].value
     }
 }
 
-function click_submit() {
+function save_name_on_storage(name, gender) {
+
+    window.localStorage.setItem(name, gender)
+}
+
+function load_name_from_storage() {
+
+    let name = validate_search_name()
+    let gender = window.localStorage.getItem(name)
+    console.log(`${name} loaded from storage, gender is ${gender}`)
+    return gender
+}
+
+
+function remove_name_from_storage(name) {
+    if (name != null) {
+        window.localStorage.removeItem(name)
+        console.log(`${name} removed from storage`)
+    }
+    saved_gender.innerText = ""
+}
+
+async function get_data_from_server(name) {
+
+    let url = `https://api.genderize.io/?name=${name}`
+
+    let response = await fetch(url)
+
+    if (!response.ok) {
+        throw new Error('some thing went wrong at server')
+    }
+
+    let json = await response.json()
+}
+
+async function submit_clicked() {
+
+}
+
+async function save_clicked() {
     try {
         let name = validate_search_name()
-        fetch(`https://api.genderize.io/?name=${name}`)
-            .then((result) => {
-                if (!result.ok) throw new Error("error")
-                return result.json()
-            })
-            .then((data) => {
-                return JSON.stringify(data)
-            }).catch((error) => window.alert(error))
+        let gender = which_gender_chosen()
+
+        save_name_on_storage(name, gender)
     } catch (e) {
-        window.alert(e)
+        console.log(e.message)
+    }
+}
+
+async function clear_clicked() {
+    if(last_name_from_storage != null) {
+        remove_name_from_storage(last_name_from_storage)
     }
 }
 
 
-
-
-function click_clear() {
-
-}
-
-
-function click_save() {
-
-}
-
-
-
-submit_btn.addEventListener("click", click_submit)
+submit_btn.addEventListener('click', submit_clicked)
+save_btn.addEventListener('click', save_clicked)
+clear_btn.addEventListener('click', clear_clicked)

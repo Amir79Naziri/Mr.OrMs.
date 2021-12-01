@@ -4,53 +4,54 @@
     <meta charset="UTF-8">
     <title>Mr. Or Ms.</title>
     <link href="css/style.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="js/script.js"defer></script>
+    <script type="text/javascript" src="js/script.js" defer></script>
 </head>
 <body>
-    <div class="main-container">
-        <div class="left-card card">
-            <div class="header">
-                <h2 class="title">Mr. Or Ms. ?</h2>
-            </div>
-            <div class="text-input-form">
-                <label>
-                    name
-                    <input type="text" id="search-text">
-                </label>
-            </div>
-            <div class="input-radio-form">
+    <div class="container">
+        <div class="sub-container">
+            <div class="left-card card">
+                <div class="header">
+                    <h2 class="title">Mr. Or Ms. ?</h2>
+                </div>
+                <div class="text-input-form">
                     <label>
-                    <input class="radio-btn" type="radio" name="gender-btn" value="Female" checked/> Female <br />
-                    <input class="radio-btn" type="radio" name="gender-btn" value="Male" /> Male <br />
+                        name
+                        <input type="text" id="search-text" class="search-text">
                     </label>
-            </div>
-            <div class="btn-container">
-                <input type="button" class="button submit-btn" id="submit-btn" value="submit">
-                <input type="button" class="button save-btn" id="save-btn" value="save">
-            </div>
-        </div>
-        <div class="right-card card">
-            <div class="result-card">
-                <section class="result-area">
-                    <div class="header">
-                        <h2 class="title">Prediction</h2>
-                    </div>
-                    <p id="result-gender">gender</p>
-                    <p id="result-percentage">percentage</p>
-                </section>
                 </div>
-            <div class="save-card">
-                    <section class="status">
-                        <div class="header">
-                            Saved Answer
-                        </div>
-                        <p id="saved-gender">saved-gender</p>
+                <div class="input-radio-form">
+                    <label>
+                        <input class="radio-btn" type="radio" name="gender-btn" value="Female" checked/> Female <br />
+                        <input class="radio-btn" type="radio" name="gender-btn" value="Male" /> Male <br />
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <input type="button" class="button submit-btn" id="submit-btn" value="submit">
+                    <input type="button" class="button save-btn" id="save-btn" value="save">
+                </div>
+            </div>
+            <div class="right-card card">
+                <div class="header">
+                    <h2 class="title">Prediction </h2>
+                </div>
+                <div class="result-card">
+                    <section class="result-area">
+                        <p id="result-gender">gender</p>
+                        <p id="result-percentage">percentage</p>
                     </section>
-                    <br />
+                </div>
+                <div class="save-card">
+                    <div class="header">
+                        Saved Answer
+                    </div>
+
+                    <p id="saved-gender">saved-gender</p>
+
                     <div class="submit-btn-container">
-                        <button type="button" class="button clear-btn" id="clear-btn">clear</button>
+                        <input type="button" class="button clear-btn" id="clear-btn" value="clear">
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </body>

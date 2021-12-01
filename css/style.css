@@ -6,40 +6,54 @@
     Cantarell, "Fira Sans",
     "Droid Sans", "Helvetica Neue",
     Arial, sans-serif, "Segoe UI Symbol";
-
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 
 body {
-    /*background-image: url("../images/img.jpg");*/
-    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background: url("../images/background.jpg") no-repeat fixed center center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #d49138;
-    padding-top: 5%;
+    width: 100%;
+    background-size: cover;
+}
+
+.container {
+    max-width: 1500px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 100vh;
+    padding: 15px 15px 15px 15px;
 }
 
 
-.main-container {
-    max-width: 55%;
-    width: 55%;
+.sub-container {
+    padding: 15px 15px 15px 15px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding-top: 4%;
+    min-width: 45%;
     justify-content: space-around;
-    min-height: 75vh;
-    background-color: #db6868;
+    min-height: 65vh;
+    background-color: #67acac;
     border-radius: 75px;
     opacity: 0.8;
     flex-shrink: 1;
     flex-grow: 1;
+    overflow: hidden;
 }
 
 .card {
+    min-width: 0;
     padding: 10px 10px 10px 10px;
     display: flex;
     flex-direction: column;
@@ -49,41 +63,43 @@ body {
 .left-card {
     min-height: 50vh;
     flex-basis: 40%;
-    background-color: #4f7893;
-
 }
 
 
 .right-card {
     min-height: 60vh;
     flex-basis: 50%;
-    background-color: #c6ae35;
 }
 
 .result-card {
-
+    font-size: 20px;
+    padding: 5px 5px 5px 5px;
 }
 
 .save-card {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 0.5;
     border-style: dashed;
-    padding: 2px 5px 5px;
+    padding: 2px 10px 5px;
+    font-size: 20px;
 }
 
 
 .header {
-    font-size: 25px;
+    font-size: 23px;
     font-weight: bold;
 }
 
 
 .button {
     display: block;
-    width: 35%;
-    height: 30px;
+    width: 45%;
+    height: 35px;
     border-radius: 25px;
     margin: 5px 0;
-    font-size: 15px;
+    font-size: 16px;
     outline: none;
     border: none;
     cursor: pointer;
@@ -96,7 +112,7 @@ body {
 }
 
 .submit-btn, .save-btn {
-    background-image: linear-gradient(to right, #55a54a 0%, #00b40c 75%);
+    background-image: linear-gradient(to right, #468ba7 0%, #164df1 75%);
     color: #ffffff;
 }
 
@@ -106,17 +122,143 @@ body {
 }
 
 .text-input-form {
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: lighter;
+}
+
+.search-text {
+    border-radius: 5px;
+    border-style: unset;
+    text-align: left;
+    padding: 6px 4px 6px 4px;
+    font-size: 16px;
+    opacity: 0.9;
+    max-width: 60%;
+}
+
+.search-text:hover, #search-text:focus {
+    opacity: 1;
 }
 
 .input-radio-form {
     font-size: 18px;
 }
 
-.radio-btn {
-    /* ...existing styles */
-    display: inline-block;
-    place-content: center;
+
+
+@media (max-width: 1150px) {
+    .sub-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .card {
+        max-width: 400px;
+        width: 95%;
+        margin-top: 5%;
+    }
+
+    .input-radio-form {
+        font-size: 14px;
+    }
+
+    .button {
+        width: 45%;
+        height: 22px;
+        font-size: 14px;
+    }
 }
 
+@media (max-width: 520px) {
 
+    .header {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .card {
+        max-width: 400px;
+        width: 95%;
+        margin-top: 5%;
+    }
+
+    .result-card {
+        font-size: 9px;
+        padding: 5px 1px 5px;
+    }
+
+    .save-card {
+        padding: 2px 6px 5px;
+        font-size: 9px;
+    }
+
+    .search-text {
+        padding: 6px 2px 6px 2px;
+        font-size: 8px;
+    }
+
+    .text-input-form {
+        font-size: 10px;
+        font-weight: lighter;
+    }
+
+    .input-radio-form {
+        font-size: 7px;
+    }
+
+    .radio-btn {
+        width: .5em;
+        height: .5em;
+    }
+    .btn-container {
+        justify-self: center;
+    }
+
+    .button {
+        width: 45%;
+        height: 15px;
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 380px) {
+    .header {
+        font-size: 7px;
+        font-weight: bold;
+    }
+
+    .text-input-form {
+        font-size: 6px;
+        font-weight: lighter;
+    }
+
+    .search-text {
+        padding: 3px 2px 3px 2px;
+        font-size: 5px;
+    }
+
+    .result-card {
+        font-size: 6px;
+        padding: 3px 1px 3px;
+    }
+
+    .save-card {
+        padding: 2px 4px 3px;
+        font-size: 6px;
+    }
+
+    .input-radio-form {
+        font-size: 4px;
+    }
+
+    .button {
+        width: 45%;
+        height: 10px;
+        font-size: 4px;
+    }
+}
