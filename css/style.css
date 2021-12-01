@@ -166,6 +166,10 @@ body {
     cursor: pointer;
 }
 
+#result-gender, #result-percentage, #saved-gender {
+    visibility: hidden;
+}
+
 
 .error-box {
     display: block;
