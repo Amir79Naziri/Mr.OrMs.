@@ -63,12 +63,14 @@ body {
 .left-card {
     min-height: 50vh;
     flex-basis: 40%;
+
 }
 
 
 .right-card {
     min-height: 60vh;
     flex-basis: 50%;
+
 }
 
 .result-card {
@@ -88,18 +90,18 @@ body {
 
 
 .header {
-    font-size: 23px;
+    font-size: 26px;
     font-weight: bold;
 }
 
 
 .button {
     display: block;
-    width: 45%;
-    height: 35px;
+    width: 55%;
+    height: 38px;
     border-radius: 25px;
     margin: 5px 0;
-    font-size: 16px;
+    font-size: 18px;
     outline: none;
     border: none;
     cursor: pointer;
@@ -122,7 +124,7 @@ body {
 }
 
 .text-input-form {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: lighter;
 }
 
@@ -141,15 +143,17 @@ body {
 }
 
 .input-radio-form {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 
 
-@media (max-width: 1150px) {
+@media (max-width: 1050px) {
+
+
     .sub-container {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .header {
@@ -174,7 +178,7 @@ body {
     }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 620px) {
 
     .header {
         font-size: 12px;
@@ -198,12 +202,12 @@ body {
     }
 
     .search-text {
-        padding: 6px 2px 6px 2px;
-        font-size: 8px;
+        padding: 6px 4px 6px 4px;
+        font-size: 10px;
     }
 
     .text-input-form {
-        font-size: 10px;
+        font-size: 12px;
         font-weight: lighter;
     }
 
