@@ -1,0 +1,122 @@
+* {
+    font-family: -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI", Roboto,
+    Oxygen, Ubuntu,
+    Cantarell, "Fira Sans",
+    "Droid Sans", "Helvetica Neue",
+    Arial, sans-serif, "Segoe UI Symbol";
+
+    box-sizing: border-box;
+}
+
+
+body {
+    /*background-image: url("../images/img.jpg");*/
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #d49138;
+    padding-top: 5%;
+}
+
+
+.main-container {
+    max-width: 55%;
+    width: 55%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 4%;
+    justify-content: space-around;
+    min-height: 75vh;
+    background-color: #db6868;
+    border-radius: 75px;
+    opacity: 0.8;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+.card {
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.left-card {
+    min-height: 50vh;
+    flex-basis: 40%;
+    background-color: #4f7893;
+
+}
+
+
+.right-card {
+    min-height: 60vh;
+    flex-basis: 50%;
+    background-color: #c6ae35;
+}
+
+.result-card {
+
+}
+
+.save-card {
+
+    border-style: dashed;
+    padding: 2px 5px 5px;
+}
+
+
+.header {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+.button {
+    display: block;
+    width: 35%;
+    height: 30px;
+    border-radius: 25px;
+    margin: 5px 0;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-size: 200%;
+    transition: .4s;
+}
+
+.button:hover {
+    background-position: right;
+}
+
+.submit-btn, .save-btn {
+    background-image: linear-gradient(to right, #55a54a 0%, #00b40c 75%);
+    color: #ffffff;
+}
+
+.clear-btn {
+    background-image: linear-gradient(to right, rgb(255, 63, 63) 0%, #ff0810 75%);
+    color: #ffffff;
+}
+
+.text-input-form {
+    font-size: 22px;
+}
+
+.input-radio-form {
+    font-size: 18px;
+}
+
+.radio-btn {
+    /* ...existing styles */
+    display: inline-block;
+    place-content: center;
+}
+
+
