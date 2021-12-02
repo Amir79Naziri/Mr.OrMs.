@@ -108,6 +108,7 @@ using column direction flex */
     border-color: #3f7474;
     padding: 2px 10px 5px;
     font-size: 20px;
+    visibility: hidden;
 }
 
 
@@ -199,7 +200,7 @@ just some font settings*/
 
 
 /*hiding this three elements, because we don't need them before submitting*/
-#result-gender, #result-percentage, #saved-gender {
+#result-gender, #result-percentage {
     visibility: hidden;
 }
 

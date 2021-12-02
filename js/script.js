@@ -57,7 +57,7 @@ function free_result_card() {
  * erases all information in save-card and hides it's elements
  */
 function free_save_card() {
-    saved_gender.style.visibility = "hidden"
+    save_card.style.visibility = "hidden"
     saved_gender.innerText = "saved_gender"
 }
 
@@ -81,7 +81,7 @@ function fill_result_card(gender, p) {
  */
 function fill_save_card(gender) {
     saved_gender.innerText = gender
-    saved_gender.style.visibility = "visible"
+    save_card.style.visibility = "visible"
 }
 
 
@@ -103,9 +103,7 @@ function fill_error_message (error, type) {
             error_message.innerText = "error"
         }, 4000);
     } else {
-        save_card.style.borderColor = "#ff0810"
         setTimeout(() => {
-            save_card.style.borderColor = "#3f7474"
             error_box.style.visibility = "hidden"
             error_message.innerText = "error"
         }, 4000);
