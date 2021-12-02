@@ -1,3 +1,5 @@
+/* adding all fonts we need and also setting default margin
+ and padding zero , and also using border box for all box sizing*/
 * {
     font-family: -apple-system,
     BlinkMacSystemFont,
@@ -12,6 +14,9 @@
 }
 
 
+/* this is top level body which holds all other things
+setting background image for our background and using cover for all types of browsers
+and also using flex for container with center alignment*/
 body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -26,6 +31,8 @@ body {
 }
 
 
+/*this is intermediate layer (container) between body and sub container
+,using flex for keeping sub container, just use that for prettier design*/
 .container {
     max-width: 1500px;
     width: 50%;
@@ -37,6 +44,8 @@ body {
 }
 
 
+/* this is main container which keeps left and right card in it, using opacity here
+ makes container glass like, also using row direction flex for left and right card*/
 .sub-container {
     padding: 15px 15px 15px 15px;
     display: flex;
@@ -50,10 +59,12 @@ body {
     opacity: 0.8;
     flex-shrink: 1;
     flex-grow: 1;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 
+/* this is left and right card container, using column direction flex in both of them
+ and doing some padding*/
 .card {
     min-width: 0;
     padding: 10px 10px 10px 10px;
@@ -63,25 +74,31 @@ body {
 }
 
 
+/* changing size of left card*/
 .left-card {
     min-height: 50vh;
     flex-basis: 40%;
-
 }
 
 
+/* changing size of right card*/
 .right-card {
     min-height: 60vh;
     flex-basis: 50%;
 }
 
 
+/* this card contains response of server and shows that to users
+just some padding and font size*/
 .result-card {
     font-size: 20px;
     padding: 5px 5px 5px 5px;
 }
 
 
+/* this card contains result of storage and shows that to users
+just some padding and font size and also creating dashed border for it and also
+using column direction flex */
 .save-card {
     display: flex;
     flex-direction: column;
@@ -94,12 +111,15 @@ body {
 }
 
 
+/* this is setting for all headers
+just some font settings */
 .header {
     font-size: 25px;
     font-weight: bold;
 }
 
 
+/*this is setting for three buttons in site, and creates nice looking button*/
 .button {
     display: block;
     width: 55%;
@@ -115,29 +135,35 @@ body {
 }
 
 
+/*this is setting for hovering on three buttons in site*/
 .button:hover {
     background-position: right;
 }
 
 
+/*this is setting for coloring save and submit buttons in site*/
 .submit-btn, .save-btn {
     background-image: linear-gradient(to right, #468ba7 0%, #07558e 75%);
     color: #ffffff;
 }
 
 
+/*this is setting for coloring clear button in site*/
 .clear-btn {
     background-image: linear-gradient(to right, rgb(255, 63, 63) 0%, #ff0810 75%);
     color: #ffffff;
 }
 
 
+/* this is setting for input text form in right card
+just some font settings*/
 .text-input-form {
     font-size: 26px;
     font-weight: lighter;
 }
 
 
+/*this is setting for search text box in site, and creates nice looking text box*/
 .search-text {
     border-radius: 5px;
     border-style: unset;
@@ -151,17 +177,20 @@ body {
 }
 
 
+/*this is setting for hovering on search text box in site*/
 .search-text:hover, #search-text:focus:active {
     opacity: 1;
     border-style: unset;
 }
 
 
+/*changing radio button font size*/
 .input-radio-form {
     font-size: 20px;
 }
 
 
+/*changing size of radio button circle and also changing cursor*/
 .radio-btn {
     width: 15px;
     height: 15px;
@@ -169,13 +198,15 @@ body {
 }
 
 
+/*hiding this three elements, because we don't need them before submitting*/
 #result-gender, #result-percentage, #saved-gender {
     visibility: hidden;
 }
 
 
+/*this creates nice looking error box for showing error message in it*/
 .error-box {
-    display: block;
+    /*display: block;*/
     position: fixed;
     border-radius: 5px;
     margin: 10px 10px;
@@ -193,6 +224,9 @@ body {
 }
 
 
+/* changing size, padding, font size, width , ... for some elements in order to
+make site more responsive when zooming out or in*/
+
 @media (max-width: 1250px) {
 
     .header {
@@ -200,7 +234,6 @@ body {
         font-weight: bold;
     }
 }
-
 
 @media (max-width: 1050px) {
 
@@ -251,7 +284,6 @@ body {
         padding: 8px 4px 8px 4px;
     }
 }
-
 
 @media (max-width: 620px) {
 
@@ -315,7 +347,6 @@ body {
         padding: 5px 2px 5px 2px;
     }
 }
-
 
 @media (max-width: 480px) {
     .header {
