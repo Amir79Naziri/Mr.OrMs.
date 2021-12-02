@@ -28,7 +28,7 @@ function validate_search_name() {
     } else if (name.length > 255) {
         throw new Error("name is more than 255 character")
     } else
-        return name
+        return name.toLowerCase()
 }
 
 
