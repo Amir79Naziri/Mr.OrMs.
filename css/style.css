@@ -95,7 +95,7 @@ body {
 
 
 .header {
-    font-size: 26px;
+    font-size: 25px;
     font-weight: bold;
 }
 
@@ -189,11 +189,13 @@ body {
     visibility: hidden;
 }
 
+@media (max-width: 1250px) {
 
-.error-box.active {
-    visibility: visible;
+    .header {
+        font-size: 22px;
+        font-weight: bold;
+    }
 }
-
 
 @media (max-width: 1050px) {
 
@@ -296,7 +298,7 @@ body {
     .button {
         width: 45%;
         height: 12px;
-        font-size: 7px;
+        font-size: 8px;
     }
 
     .error-box {
@@ -341,7 +343,7 @@ body {
     }
 
     .button {
-        width: 45%;
+        width: 55%;
         height: 10px;
         font-size: 5px;
     }
