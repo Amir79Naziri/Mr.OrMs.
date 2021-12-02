@@ -10,7 +10,6 @@ const error_message = document.getElementById("error-message")
 const error_box = document.getElementById("error-box")
 const save_card = document.getElementById("save-card")
 
-let last_name_requested = null;
 
 
 /**
@@ -145,7 +144,6 @@ async function get_data_from_server() {
 async function load_name_from_storage() {
     let name = validate_search_name()
     let gender = window.localStorage.getItem(name)
-    last_name_requested = name
     console.log(`${name} loaded from storage, gender is ${gender}`)
     return gender
 }
@@ -155,11 +153,12 @@ async function load_name_from_storage() {
  * removes name from storage
  */
 async function remove_name_from_storage() {
-    if (last_name_requested != null && await window.localStorage.getItem(last_name_requested) != null) {
-        window.localStorage.removeItem(last_name_requested)
-        console.log(`${last_name_requested} has been removed from storage`)
+    let name = validate_search_name()
+    if (window.localStorage.getItem(name) != null) {
+        window.localStorage.removeItem(name)
+        console.log(`${name} has been removed from storage`)
     } else {
-        throw new Error("there isn't anything to delete")
+        throw new Error("there isn't anything for this name to delete")
     }
 }
 
@@ -172,7 +171,7 @@ async function save_name_on_storage() {
     let name = validate_search_name()
     let gender = which_gender_chosen()
     if (window.localStorage.getItem(name) != null) {
-        await remove_name_from_storage(name)
+        window.localStorage.removeItem(name)
     }
     window.localStorage.setItem(name, gender)
     console.log(`${name} with value ${gender} saved on storage`)
@@ -185,7 +184,6 @@ async function save_name_on_storage() {
  */
 async function submit_clicked() {
     console.log('submit_clicked')
-    last_name_requested = null
     free_save_card()
     free_result_card()
     try {
@@ -210,8 +208,7 @@ async function submit_clicked() {
 async function clear_clicked() {
     console.log('clear_clicked')
     try {
-        console.log(last_name_requested)
-        await remove_name_from_storage(last_name_requested)
+        await remove_name_from_storage()
         free_save_card()
     }
     catch (e) {
