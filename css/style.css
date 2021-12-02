@@ -141,6 +141,8 @@ body {
 .search-text {
     border-radius: 5px;
     border-style: unset;
+    outline-style: unset;
+    outline-color: #ff0810;
     text-align: left;
     padding: 6px 4px 6px 4px;
     font-size: 16px;
@@ -149,9 +151,9 @@ body {
 }
 
 
-.search-text:hover, #search-text:focus {
+.search-text:hover, #search-text:focus:active {
     opacity: 1;
-    outline-color: #468ba7;
+    border-style: unset;
 }
 
 
@@ -166,6 +168,7 @@ body {
     cursor: pointer;
 }
 
+
 #result-gender, #result-percentage, #saved-gender {
     visibility: hidden;
 }
@@ -177,7 +180,7 @@ body {
     border-radius: 5px;
     margin: 10px 10px;
     min-width: 10%;
-    max-width: 20%;
+    max-width: 25%;
 
     font-size: 14px;
     padding: 15px 5px 15px 5px;
@@ -189,6 +192,7 @@ body {
     visibility: hidden;
 }
 
+
 @media (max-width: 1250px) {
 
     .header {
@@ -196,6 +200,7 @@ body {
         font-weight: bold;
     }
 }
+
 
 @media (max-width: 1050px) {
 
@@ -240,7 +245,7 @@ body {
     .error-box {
         margin: 5px 5px;
         min-width: 10%;
-        max-width: 17%;
+        max-width: 25%;
         max-height: 30%;
         font-size: 9px;
         padding: 8px 4px 8px 4px;
@@ -304,7 +309,7 @@ body {
     .error-box {
         margin: 3px 3px;
         min-width: 10%;
-        max-width: 15%;
+        max-width: 30%;
         max-height: 30%;
         font-size: 5px;
         padding: 5px 2px 5px 2px;
@@ -356,7 +361,7 @@ body {
     .error-box {
         margin: 1px 1px;
         min-width: 10%;
-        max-width: 15%;
+        max-width: 35%;
         max-height: 20%;
         font-size: 5px;
         padding: 3px 1px 3px 1px;

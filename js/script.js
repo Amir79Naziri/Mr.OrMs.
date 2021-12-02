@@ -8,13 +8,15 @@ const search_text = document.getElementById("search-text")
 const radio_btn = document.getElementsByName("gender-btn")
 const error_message = document.getElementById("error-message")
 const error_box = document.getElementById("error-box")
+const save_card = document.getElementById("save-card")
 
-let last_name_from_storage = null;
+let last_name_requested = null;
 
 function validate_search_name() {
     let name = search_text.value
-
-    if (name.length === 0) {
+    if (name.replace(/[a-z\s*]|/gi, '').length > 0) {
+        throw new Error("you shouldn't use numbers or non-alphabets")
+    } else if (name.length === 0) {
         throw new Error("please enter your name")
     } else if (name.length > 255) {
         throw new Error("name is more than 255 character")
@@ -28,6 +30,13 @@ function which_gender_chosen() {
     }
 }
 
+
+function free_result_card() {
+    result_gender.style.visibility = "hidden"
+    result_percentage.style.visibility = "hidden"
+    result_gender.innerText = "gender"
+    result_percentage.innerText = "percentage"
+}
 
 function free_save_card() {
     saved_gender.style.visibility = "hidden"
@@ -46,20 +55,32 @@ function fill_save_card(gender) {
     saved_gender.style.visibility = "visible"
 }
 
-function fill_error_message (error) {
+function fill_error_message (error, type) {
     error_message.innerText = error
     error_box.style.visibility = "visible"
-    setTimeout(() => {
-        error_box.style.visibility = "hidden"
-        error_message.innerText = "error box"
-    }, 4000);
+    if (type === 1) {
+        free_result_card()
+        search_text.style.outlineStyle = "solid"
+        setTimeout(() => {
+            error_box.style.visibility = "hidden"
+            error_message.innerText = "error box"
+            search_text.style.outlineStyle = "unset"
+        }, 4000);
+    } else {
+        save_card.style.borderColor = "#ff0810"
+        setTimeout(() => {
+            error_box.style.visibility = "hidden"
+            error_message.innerText = "error box"
+            save_card.style.borderColor = "#3f7474"
+        }, 4000);
+    }
 }
 
 
 async function get_data_from_server() {
 
     let name = validate_search_name()
-    last_name_from_storage = name
+    last_name_requested = name
     let response = await fetch(`https://api.genderize.io/?name=${name}`)
 
     if (!response.ok) {
@@ -78,14 +99,15 @@ async function get_data_from_server() {
 async function load_name_from_storage() {
     let name = validate_search_name()
     let gender = window.localStorage.getItem(name)
+    last_name_requested = name
     console.log(`${name} loaded from storage, gender is ${gender}`)
     return gender
 }
 
 async function remove_name_from_storage() {
-    if (last_name_from_storage != null) {
-        window.localStorage.removeItem(last_name_from_storage)
-        console.log(`${last_name_from_storage} removed from storage`)
+    if (last_name_requested != null) {
+        window.localStorage.removeItem(last_name_requested)
+        console.log(`${last_name_requested} removed from storage if it was in storage`)
     }
 }
 
@@ -108,6 +130,9 @@ async function submit_clicked() {
         let gender_from_storage = await load_name_from_storage()
         if (gender_from_storage != null) {
             fill_save_card(gender_from_storage)
+        } else {
+            free_save_card()
+            last_name_requested = null
         }
 
         let data = await get_data_from_server()
@@ -115,20 +140,21 @@ async function submit_clicked() {
 
     } catch (e) {
         console.log(e.message)
-        fill_error_message(e.message)
+        fill_error_message(e.message, 1)
     }
 }
 
 
 async function clear_clicked() {
     console.log('clear_clicked')
-    if (last_name_from_storage != null) {
-        await remove_name_from_storage(last_name_from_storage)
+    if (last_name_requested != null) {
+        console.log(last_name_requested)
+        await remove_name_from_storage(last_name_requested)
         free_save_card()
     } else {
         let message = "there isn't any name for clearing"
         console.log(message)
-        fill_error_message(message)
+        fill_error_message(message, 2)
     }
 }
 
@@ -139,7 +165,7 @@ async function save_clicked() {
         fill_save_card(gender)
     } catch (e) {
         console.log(e.message)
-        fill_error_message(e.message)
+        fill_error_message(e.message, 1)
     }
 }
 
